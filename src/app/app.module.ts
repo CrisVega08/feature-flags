@@ -1,18 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FeaturesFlagsService } from './services/features-flags.service';
+
+export const preloadFeature = (featuresService: FeaturesFlagsService) =>
+  () => featuresService.getFeature().toPromise();
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      useFactory: preloadFeature,
+      deps: [FeaturesFlagsService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

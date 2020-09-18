@@ -112,5 +112,8 @@
       }
     }
   },
-  "defaultProject": "feature-flags"
+  "defaultProject": "feature-flags",
+  "cli": {
+    "analytics": false
+  }
 }
