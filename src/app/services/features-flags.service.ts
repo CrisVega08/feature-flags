@@ -21,10 +21,8 @@ export class FeaturesFlagsService {
 
   getFeature(): Observable<any> {
     const fake = {
-      a: true,
-      b: false,
-      c: true,
-      d: false
+      newFeature: false,
+      newTemplate: false,
     };
 
     return timer(500).pipe(

@@ -7,6 +7,7 @@ import { FeatureFlagDirective } from './feature-flag.directive'
   declarations: [FeatureFlagDirective],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [FeatureFlagDirective]
 })
 export class FeatureFlagModule { }

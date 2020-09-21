@@ -4,6 +4,7 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesFlagsService } from './services/features-flags.service';
+import { AboutComponent } from './pages/about/about.component';
 
 export const preloadFeature = (featuresService: FeaturesFlagsService) =>
   () => featuresService.getFeature().toPromise();
@@ -11,6 +12,7 @@ export const preloadFeature = (featuresService: FeaturesFlagsService) =>
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
