@@ -1,15 +1,15 @@
 <div>
-  <p>catalogue works!</p>
   <div>
-    <a [routerLink]="['/car']">
-      car
-    </a>
-     | 
+    <a [routerLink]="['/car']"> car </a>
+    |
+    <a [routerLink]="['/new-about']"> about </a>
+    |
     <a [routerLink]="['/new-feature']" *featureFlag="['newFeature']">
       new feature
     </a>
   </div>
-  <div *featureFlag="['newTemplate']">
+  <p>catalogue works!</p>
+  <div *featureFlag="['newTemplate', 'newAbout']; or: ['newFeature']">
     Working in new section
   </div>
 </div>

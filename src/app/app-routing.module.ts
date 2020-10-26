@@ -9,21 +9,24 @@ import { PreloadingStrategy } from './helpers/preloading-strategy';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/catalogue/catalogue.module').then(m => m.CatalogueModule)
+    loadChildren: () => import('./pages/catalogue/catalogue.module').then(m => m.CatalogueModule),
+    data: {
+      flags: ['a']
+    }
   },
   {
-    path: 'about-new',
+    path: 'new-about',
     component: AboutComponent,
     canActivate: [FlagGuardGuard],
     data: {
-      flags: ['b']
+      flags: ['newAbout']
     }
   },
   {
     path: 'car',
     loadChildren: () => import('./pages/car/car.module').then(m => m.CarModule),
     data: {
-      flags: 'b'
+      flags: 'car'
     },
   },
   {
